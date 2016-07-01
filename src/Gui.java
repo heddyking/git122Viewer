@@ -26,6 +26,7 @@ public class Gui extends javax.swing.JFrame {
      */
     public Gui() {
         initComponents();
+        this.setLocationRelativeTo(null);
         
         jComboBox1.removeAllItems();
         jComboBox1.addItem(SELECT_PROVINCE);
@@ -150,8 +151,9 @@ public class Gui extends javax.swing.JFrame {
         
         Object[][] objs=new Object[result.size()][4];
         for(int k=0;k<result.size();k++){
-            objs[k][0]=Site.getCityById(result.get(k).get("glbm")+"").get("pname");
-            objs[k][1]=result.get(k).get("bmmc");
+        	Map<String,Object> c=Site.getCityById(result.get(k).get("glbm")+"");
+            objs[k][0]=c.get("pname");
+            objs[k][1]=c.get("cname");
             objs[k][2]=result.get(k).get("tfrq");
             objs[k][3]=result.get(k).get("subhd");
         }

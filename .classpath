@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="com.sun.net.httpserver.jar"/>
+	<classpathentry kind="lib" path="commons-io-1.3.jar"/>
+	<classpathentry kind="lib" path="dist/gov122.jar"/>
+	<classpathentry kind="lib" path="dist/lib/com.sun.net.httpserver.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-io-1.3.jar"/>
+	<classpathentry kind="lib" path="dist/lib/jackson-all-1.9.0.jar"/>
+	<classpathentry kind="lib" path="jackson-all-1.9.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

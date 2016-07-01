@@ -49,10 +49,9 @@ public class Tfhd {
 			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 			System.out.println("Request--->"+urlName);
 			URL realUrl = new URL(urlName);
-			//打开和URL之间的连接
+			
 			conn = (HttpURLConnection)realUrl.openConnection();
 
-			//设置通用的请求属性，请设置好请求时延  ！!!务必处理请求超时！！！
 			conn.setReadTimeout(8000);
 			conn.setRequestProperty("Accept", "application/json, text/javascript, */*; q=0.01");
 			conn.setRequestProperty("Accept-Language", "zh-CN");
@@ -64,31 +63,24 @@ public class Tfhd {
 			conn.setRequestProperty("Pragma", "no-cache");
 
 			
-			//发送POST请求必须设置如下两行
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
-			//获取URLConnection对象对应的输出流
 			out = new PrintWriter(conn.getOutputStream());
-			//发送请求参数
 			Date now=new Date(System.currentTimeMillis());
 			Date pre=new Date(System.currentTimeMillis());
 			pre.setMonth(pre.getMonth()-2);
 			String param="page=0&tfqk=1&glbm="+p.get("City")+"&startTime="+pre+"&endTime="+now;
 			out.print(param);
-			//flush输出流的缓冲
 			out.flush();
 
 			
-			//获取所有响应头字段
 			Map<String,List<String>> map = conn.getHeaderFields();
-			//遍历所有的响应头字段
 			for (String key : map.keySet())
 			{
 				r.put(key, map.get(key));
 				System.out.println(key + "--->" + map.get(key));
 			}
 
-			//定义BufferedReader输入流来读取URL的响应
 			String body = "";
 			in  = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line;
@@ -107,10 +99,9 @@ public class Tfhd {
 		}
 		catch(Exception e)
 		{
-			System.out.println("发送POST请求出现异常！" + e);
+			System.out.println("Post Exception" + e);
 			e.printStackTrace();
 		}
-		//使用finally块来关闭输出流、输入流
 		finally
 		{
 			try
