@@ -1,0 +1,15 @@
+packaging into a x86 exe:
+
+1. export into jar + libs, Eclipse Export Runable Jar and choose "Copy required libs ..."
+
+2. install exe4j and must licsence it.
+
+3. In classPath add jar and all the libs' jar
+
+4. In jre remove all the jre path, and use own x86 Jre, It will auto-calculate the relative path
+
+5. add ico and splash png
+
+6. generate exe
+
+7. release = exe+jre
